@@ -7,19 +7,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg"></div>
+  <div class="dark-bg">
+    <div class="light-sweep"></div>
+  </div>
 
   <main class="container">
-    <section id="code-screen" class="card fade-in">
-      <h1>🎤 GN Singer Vote</h1>
-      <p class="sub">현장 참여형 실시간 투표</p>
+    <section id="code-screen" class="glass">
+      <h1>GN Singer Vote</h1>
+      <p class="sub">Live Stage Audience Choice</p>
       <input id="codeInput" placeholder="투표 코드 입력" />
       <button onclick="checkCode()">ENTER</button>
       <p class="msg" id="codeMsg"></p>
     </section>
 
-    <section id="vote-screen" class="card hidden slide-up">
-      <h2>무대를 빛낸 참가자는?</h2>
+    <section id="vote-screen" class="glass hidden">
+      <h2>가장 인상 깊은 무대는?</h2>
       <div class="grid">
         <button onclick="vote(1)">01</button>
         <button onclick="vote(2)">02</button>

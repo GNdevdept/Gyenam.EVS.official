@@ -7,22 +7,28 @@ body {
   margin: 0;
   height: 100vh;
   overflow: hidden;
-  color: white;
+  color: #f9fafb;
+  background: #050505;
 }
 
-.bg {
+.dark-bg {
   position: fixed;
   inset: 0;
-  background: linear-gradient(120deg, #2563eb, #9333ea, #ec4899);
-  background-size: 300% 300%;
-  animation: gradient 8s ease infinite;
-  z-index: -1;
+  background: radial-gradient(circle at center, #111 0%, #050505 70%);
+  z-index: -2;
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.light-sweep {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255,215,128,0.18), transparent 60%);
+  animation: sweep 8s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% { transform: translateX(-20%) translateY(0); opacity: 0.2; }
+  50% { transform: translateX(20%) translateY(-10%); opacity: 0.6; }
+  100% { transform: translateX(-20%) translateY(0); opacity: 0.2; }
 }
 
 .container {
@@ -32,57 +38,75 @@ body {
   align-items: center;
 }
 
-.card {
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(14px);
-  padding: 40px;
-  border-radius: 20px;
+.glass {
+  background: rgba(20,20,20,0.55);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 42px;
   width: 340px;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08),
+    0 30px 80px rgba(0,0,0,0.8);
+  animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
 }
 
 .sub {
-  opacity: 0.8;
-  margin-bottom: 25px;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 28px;
 }
 
 input {
   width: 100%;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   font-size: 16px;
-  margin-bottom: 15px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  margin-bottom: 18px;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.4);
 }
 
 button {
   width: 100%;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 14px;
   border: none;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(135deg, #22d3ee, #6366f1);
-  color: white;
-  transition: transform .2s, box-shadow .2s;
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #111;
+  box-shadow: 0 10px 30px rgba(234,179,8,0.25);
+  transition: transform .2s, box-shadow .2s, opacity .2s;
 }
 
 button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(234,179,8,0.35);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 16px;
   margin-top: 20px;
 }
 
@@ -92,28 +116,11 @@ button:hover {
 }
 
 .msg {
-  margin-top: 15px;
+  margin-top: 18px;
   font-size: 14px;
+  color: #fde68a;
 }
 
 .hidden {
   display: none;
-}
-
-.fade-in {
-  animation: fadeIn .8s ease;
-}
-
-.slide-up {
-  animation: slideUp .6s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
 }
