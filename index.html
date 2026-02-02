@@ -2,66 +2,34 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>행사 투표 시스템</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .box {
-      background: white;
-      padding: 30px;
-      width: 320px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-    button {
-      border: none;
-      border-radius: 8px;
-      background: #2563eb;
-      color: white;
-      cursor: pointer;
-    }
-    .options button {
-      background: #111827;
-    }
-    .hidden { display: none; }
-    .msg { margin-top: 10px; color: #dc2626; }
-  </style>
+  <title>GN Singer Vote</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="box">
-  <div id="code-screen">
-    <h2>🎤 행사 투표</h2>
-    <p>투표 코드를 입력하세요</p>
-    <input id="codeInput" placeholder="GNsingertest-1" />
-    <button onclick="checkCode()">입장</button>
-    <p class="msg" id="codeMsg"></p>
-  </div>
+  <div class="bg"></div>
 
-  <div id="vote-screen" class="hidden">
-    <h2>🎶 참가자 투표</h2>
-    <div class="options">
-      <button onclick="vote(1)">1번</button>
-      <button onclick="vote(2)">2번</button>
-      <button onclick="vote(3)">3번</button>
-      <button onclick="vote(4)">4번</button>
-    </div>
-    <p class="msg" id="voteMsg"></p>
-  </div>
-</div>
-<script src="vote.js"></script>
+  <main class="container">
+    <section id="code-screen" class="card fade-in">
+      <h1>🎤 GN Singer Vote</h1>
+      <p class="sub">현장 참여형 실시간 투표</p>
+      <input id="codeInput" placeholder="투표 코드 입력" />
+      <button onclick="checkCode()">ENTER</button>
+      <p class="msg" id="codeMsg"></p>
+    </section>
+
+    <section id="vote-screen" class="card hidden slide-up">
+      <h2>무대를 빛낸 참가자는?</h2>
+      <div class="grid">
+        <button onclick="vote(1)">01</button>
+        <button onclick="vote(2)">02</button>
+        <button onclick="vote(3)">03</button>
+        <button onclick="vote(4)">04</button>
+      </div>
+      <p class="msg" id="voteMsg"></p>
+    </section>
+  </main>
+
+  <script src="vote.js"></script>
 </body>
 </html>
